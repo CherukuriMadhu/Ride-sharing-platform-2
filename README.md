@@ -1,4 +1,4 @@
-# Smart Ride Sharing Platform - Setup & Run Guide
+# Smart Ride Sharing and Car Pooling Platform - Setup & Run Guide
 
 ## 📋 Prerequisites
 
@@ -299,4 +299,5 @@ The Smart Ride Sharing Platform is now running. Enjoy exploring all the features
 ✅ Email notifications  
 ✅ Responsive design  
 
-**Need help?** Contact: dilullucreations@gmail.com
+**Need help?** Contact: cherukurimadhu52@gmail.com
+
