@@ -1,0 +1,126 @@
+/* Admin Dashboard Specific Styles */
+
+.overview-container {
+    animation: fadeIn 0.4s ease-out;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 28px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-normal);
+    color: var(--dark-charcoal);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: white;
+}
+
+.stat-details h3 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--dark-charcoal);
+    font-family: 'Outfit', sans-serif;
+}
+
+.stat-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #636e72;
+}
+
+.bg-primary {
+    background: #007bff !important;
+}
+
+.bg-success {
+    background: #28a745 !important;
+}
+
+.bg-info {
+    background: #17a2b8 !important;
+}
+
+.bg-warning {
+    background: #ffc107 !important;
+}
+
+/* Table enhancements */
+.user-avatar-sm {
+    width: 38px;
+    height: 38px;
+    background: #f1f2f6;
+    color: #2d3436;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.table th {
+    font-weight: 800;
+    color: var(--dark-charcoal);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    padding: 18px 24px;
+    background: var(--pastel-blue-light);
+}
+
+.table td {
+    padding: 15px 20px;
+    vertical-align: middle;
+}
+
+.badge {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.btn-group-sm>.btn {
+    padding: 6px 10px;
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* Scroll area adjustment */
+.content-area {
+    overflow-y: auto;
+    height: calc(100vh - 70px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    .stat-details h3 {
+        font-size: 20px;
+    }
+}

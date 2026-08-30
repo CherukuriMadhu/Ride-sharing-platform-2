@@ -1,0 +1,244 @@
+.search-ride-wizard-container {
+    min-height: 100vh;
+    padding: 60px 20px;
+    background: var(--bg-main);
+    display: flex;
+    justify-content: center;
+}
+
+.search-ride-card {
+    background: var(--white);
+    border-radius: 32px;
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 1000px;
+    padding: 50px;
+    min-height: 600px;
+    color: var(--dark-charcoal);
+}
+
+/* Step Indicator */
+.wizard-steps-indicator {
+    gap: 40px;
+}
+
+.step-dot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+}
+
+.step-dot.active {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.step-dot.done {
+    opacity: 0.8;
+}
+
+.dot-circle {
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    border: 2px solid #cbd5e1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.step-dot.active .dot-circle {
+    border-color: var(--pastel-blue);
+    color: var(--pastel-blue);
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+}
+
+.step-dot.done .dot-circle {
+    background: var(--pastel-blue);
+    border-color: var(--pastel-blue);
+    color: var(--dark-charcoal);
+}
+
+.dot-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+/* Ride Cards */
+.ride-results-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.ride-card-modern {
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Softer border */
+    border-radius: 24px;
+    /* More rounded */
+    padding: 1.75rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy premium feel */
+    color: var(--dark-charcoal);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ride-card-modern:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: #3b82f6;
+}
+
+.ride-card-modern.selected {
+    background: #f8fafc;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.ride-card-modern.selected::after {
+    content: '✓ Selected';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #3b82f6;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.driver-info {
+    display: flex;
+    align-items: center;
+}
+
+.driver-avatar {
+    width: 40px;
+    height: 40px;
+    background: #e0f2fe;
+    color: #0369a1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+}
+
+.ride-route {
+    position: relative;
+    padding-left: 25px;
+}
+
+.ride-route .dot {
+    position: absolute;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.ride-route .dot.start {
+    top: 0;
+    background: #22c55e;
+}
+
+.ride-route .dot.end {
+    bottom: 0;
+    background: #ef4444;
+}
+
+.ride-route .line {
+    position: absolute;
+    left: 3.5px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: #e2e8f0;
+}
+
+.route-texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60px;
+    font-size: 14px;
+    color: var(--dark-charcoal);
+    font-weight: 500;
+}
+
+.bg-soft-primary {
+    background-color: #e0f2fe;
+}
+
+.tiny {
+    font-size: 11px;
+}
+
+/* Pickup Box Dashed */
+.border-dashed {
+    border-style: dashed !important;
+    background: #f8fafc;
+    color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+    .search-ride-card {
+        padding: 25px;
+    }
+
+    .wizard-steps-indicator {
+        gap: 15px;
+    }
+
+    .dot-label {
+        display: none;
+    }
+}
+
+.receipt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2100;
+}
+
+.receipt-container {
+    width: 95%;
+    max-width: 500px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}

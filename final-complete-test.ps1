@@ -1,6 +1,6 @@
 # Final complete authentication test
 
-Write-Host "🎯 FINAL COMPLETE AUTHENTICATION TEST"
+Write-Host "FINAL COMPLETE AUTHENTICATION TEST"
 Write-Host "===================================="
 
 $users = @(
@@ -16,15 +16,15 @@ foreach ($user in $users) {
     try {
         $body = "{`"email`":`"$($user.email)`",`"password`":`"$($user.password)`"}"
         $response = Invoke-RestMethod -Uri "http://localhost:8082/api/users/login" -Method POST -ContentType "application/json" -Body $body
-        Write-Host "✅ $($user.type): $($response.user.name) ($($response.user.role))"
+        Write-Host "[OK] $($user.type): $($response.user.name) ($($response.user.role))"
         $successCount++
     } catch {
-        Write-Host "❌ $($user.type): FAILED"
+        Write-Host "[FAIL] $($user.type): FAILED"
     }
 }
 
 Write-Host ""
-Write-Host "📊 RESULTS: $successCount/4 tests passed"
-Write-Host "🎉 STATUS: $(if ($successCount -eq 4) { 'COMPLETE SUCCESS' } else { 'PARTIAL SUCCESS' })"
+Write-Host "RESULTS: $successCount/4 tests passed"
+Write-Host "STATUS: $(if ($successCount -eq 4) { 'COMPLETE SUCCESS' } else { 'PARTIAL SUCCESS' })"
 Write-Host ""
-Write-Host "🚀 SYSTEM READY FOR PRODUCTION USE!"
+Write-Host "SYSTEM READY FOR PRODUCTION USE!"

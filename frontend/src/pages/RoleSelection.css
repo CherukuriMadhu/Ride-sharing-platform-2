@@ -1,0 +1,118 @@
+.role-selection-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    background: linear-gradient(135deg, #e0f2fe 0%, #bfdbfe 100%);
+    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.role-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.role-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.role-header p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+}
+
+.role-cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.role-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.role-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: #3498db;
+}
+
+.role-card.driver:hover {
+    border-color: #e74c3c;
+}
+
+.role-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.role-card:hover .role-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.role-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #34495e;
+}
+
+.role-card p {
+    color: #7f8c8d;
+    line-height: 1.5;
+}
+
+.card-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #bdc3c7;
+}
+
+.role-card.passenger .card-decoration {
+    background: #3498db;
+}
+
+.role-card.driver .card-decoration {
+    background: #e74c3c;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .role-cards {
+        flex-direction: column;
+    }
+}

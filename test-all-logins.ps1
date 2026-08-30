@@ -36,11 +36,11 @@ $adminResult = TestLogin "admin@smartride.com" "admin123" "Admin"
 # Test basic user that was created
 $basicResult = TestLogin "test@basic.com" "test123" "Basic User"
 
-# Test passenger
-$passengerResult = TestLogin "passenger@test.com" "test123" "Passenger"
+# Test passenger (password is 123456 - set by DataInitializer)
+$passengerResult = TestLogin "passenger@test.com" "123456" "Passenger"
 
-# Test driver
-$driverResult = TestLogin "driver@test.com" "test123" "Driver"
+# Test driver (password is 123456 - set by DataInitializer)
+$driverResult = TestLogin "driver@test.com" "123456" "Driver"
 
 Write-Host "Login Test Summary:"
 Write-Host "=================="

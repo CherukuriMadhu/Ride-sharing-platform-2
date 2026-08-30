@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'react-toastify/dist/ReactToastify.css';
+
+/* ==================== CSS VARIABLES - SOFT PASTEL THEME ==================== */
+:root {
+    /* Primary Pastel Palette */
+    --pastel-blue: #a2d2ff;
+    --pastel-blue-light: #bde0fe;
+    --pastel-pink: #ffc8dd;
+    --pastel-pink-light: #ffafcc;
+    --pastel-purple: #cdb4db;
+
+    /* Functional Pastels */
+    --pastel-green: #caffbf;
+    --pastel-yellow: #fdffb6;
+    --pastel-orange: #ffd6a5;
+
+    /* Primary Colors (Softened) */
+    --primary-green: #2ecc71;
+    --primary-green-lighter: #a8e6cf;
+    --neon-green: #00ff88;
+
+    /* Neutral Colors - High Contrast */
+    --white: #ffffff;
+    --off-white: #fdfbf7;
+    --light-gray: #f1f2f6;
+    --gray: #636e72;
+    --dark-charcoal: #2d3436;
+    --black: #000000;
+
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+
+    /* Theme Primary Layout */
+    --bg-main: #e0f2fe;
+    /* Light Sky Blue */
+    --bg-card: #f8fafc;
+    --text-main: var(--dark-charcoal);
+    --text-muted: var(--gray);
+    --primary-accent: var(--pastel-blue);
+
+    /* Gradients */
+    --gradient-green: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%);
+
+    /* Semantic Mappings */
+    --success: #2ecc71;
+    --danger: #e74c3c;
+    --warning: #f1c40f;
+    --info: #3498db;
+
+    /* Shadows & Glows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 8px 24px rgba(162, 210, 255, 0.2);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.1);
+
+    /* Interactive */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== GLOBAL STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+/* ==================== ANIMATED BACKGROUNDS ==================== */
+.animated-bg {
+    background: var(--bg-main);
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
+}
+
+.animated-bg-green {
+    position: relative;
+    background: var(--gradient-green);
+}
+
+.animated-bg-green::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ==================== CUSTOM BUTTONS ==================== */
+.btn-primary {
+    background: var(--pastel-blue) !important;
+    border: none !important;
+    color: var(--dark-charcoal) !important;
+    font-weight: 700;
+    padding: 0.8rem 2rem;
+    border-radius: 14px;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+    font-family: 'Outfit', sans-serif;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    background: var(--pastel-blue-light) !important;
+}
+
+.btn-secondary {
+    background: var(--pastel-pink) !important;
+    border: none !important;
+    color: var(--dark-charcoal) !important;
+    font-weight: 700;
+    padding: 0.8rem 2rem;
+    border-radius: 14px;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+    background: var(--pastel-pink-light) !important;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ==================== CUSTOM CHECKBOXES ==================== */
+.custom-checkbox {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.custom-checkbox input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.custom-checkbox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: var(--white);
+    border: 2px solid var(--primary-green);
+    border-radius: 4px;
+    transition: all var(--transition-fast);
+}
+
+.custom-checkbox:hover .checkmark {
+    background-color: var(--primary-green-lighter);
+}
+
+.custom-checkbox input:checked~.checkmark {
+    background-color: var(--primary-green);
+    animation: checkboxPop 0.3s ease;
+}
+
+.custom-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.custom-checkbox input:checked~.checkmark:after {
+    display: block;
+}
+
+@keyframes checkboxPop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ==================== CARDS ==================== */
+.card {
+    background: var(--white);
+    border: none;
+    border-radius: 24px;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    overflow: hidden;
+    color: var(--text-main);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    background: var(--pastel-blue-light);
+    color: var(--dark-charcoal);
+    font-weight: 800;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.03);
+    padding: 1.5rem;
+}
+
+/* ==================== FORMS ==================== */
+.form-control {
+    background: var(--light-gray);
+    border: 2px solid transparent;
+    color: var(--dark-charcoal);
+    border-radius: 16px;
+    padding: 0.85rem 1.25rem;
+    transition: all var(--transition-fast);
+    font-weight: 500;
+}
+
+.form-control:focus {
+    background: var(--white);
+    color: var(--dark-charcoal);
+    border-color: var(--pastel-blue);
+    box-shadow: 0 0 0 4px rgba(162, 210, 255, 0.3);
+}
+
+.form-label {
+    font-weight: 700;
+    color: var(--dark-charcoal);
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ==================== PAGE TRANSITIONS ==================== */
+.page-transition-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.page-transition-exit {
+    opacity: 1;
+}
+
+.page-transition-exit-active {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* ==================== UTILITY CLASSES ==================== */
+.text-pastel-blue {
+    color: var(--pastel-blue) !important;
+}
+
+.bg-pastel-blue {
+    background-color: var(--pastel-blue) !important;
+}
+
+.text-pastel-pink {
+    color: var(--pastel-pink) !important;
+}
+
+.bg-pastel-pink {
+    background-color: var(--pastel-pink) !important;
+}
+
+.shadow-custom {
+    box-shadow: var(--shadow-md);
+}
+
+.text-visible {
+    color: var(--text-main) !important;
+}
+
+.text-muted-custom {
+    color: var(--text-muted) !important;
+}
+
+.text-neon-green {
+    color: var(--success) !important;
+}
+
+.bg-neon-green {
+    background-color: var(--pastel-green) !important;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ==================== TOAST NOTIFICATIONS CUSTOMIZATION ==================== */
+.Toastify__toast {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid var(--glass-border) !important;
+    color: var(--text-main) !important;
+}
+
+.Toastify__toast--success {
+    border-left: 4px solid var(--neon-green) !important;
+}
+
+.Toastify__toast--error {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+}
+
+.Toastify__toast--info {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+}
+
+.Toastify__toast--warning {
+    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%) !important;
+}

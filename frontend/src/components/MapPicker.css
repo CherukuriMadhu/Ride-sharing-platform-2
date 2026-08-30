@@ -1,0 +1,39 @@
+.map-container-wrapper {
+    position: relative;
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.map-container-wrapper:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.map-container-wrapper.selectable {
+    cursor: crosshair;
+}
+
+.leaflet-container {
+    font-family: inherit;
+    z-index: 1;
+}
+
+/* Fix popup styling */
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Inter', sans-serif;
+}
+
+.leaflet-popup-content {
+    margin: 12px 16px;
+    font-size: 14px;
+}
+
+.leaflet-popup-tip {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

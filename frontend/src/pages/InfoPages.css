@@ -1,0 +1,32 @@
+.info-page {
+    min-height: 100vh;
+    padding: 2rem 0;
+    background: var(--bg-main);
+}
+
+.info-page .card {
+    transition: all 0.3s ease;
+}
+
+.info-page .card:hover {
+    transform: translateY(-5px);
+}
+
+.info-page .accordion .card-header {
+    transition: background-color 0.3s ease;
+}
+
+.info-page .accordion .card-header:hover {
+    background-color: var(--pastel-blue-light) !important;
+}
+
+.info-page a {
+    color: var(--neon-green);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.info-page a:hover {
+    color: var(--primary-green-dark);
+    text-decoration: underline;
+}
